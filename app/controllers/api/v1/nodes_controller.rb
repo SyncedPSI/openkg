@@ -21,8 +21,8 @@ class Api::V1::NodesController < ApplicationController
   end
 
   def links_json_format(node, node_in, node_out)
-    link_in = node_in.map { |n| { source: n[1], target: node[0][1] } }
-    link_out = node_out.map { |n| { source: node[0][1], target: n[1] } }
+    link_in = node_in.map { |n| { source: n[0], target: node[0][0] } }
+    link_out = node_out.map { |n| { source: node[0][0], target: n[0] } }
     link_in + link_out
   end
 end
