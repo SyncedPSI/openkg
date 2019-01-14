@@ -4,6 +4,10 @@ class Api::V1::NodesController < ApplicationController
     node_out = related_out(params[:id])
     node_in = related_in(params[:id])
     result = build_json(node, node_in, node_out)
+    node_info = find_node_by_id(params[:id])
+    result[:id] = node_info.properties[:uuid]
+    result[:name] = node_info.properties[:name]
+    result[:desc] = node_info.properties[:desc]
     render json: result.to_json
   end
 

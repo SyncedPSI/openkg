@@ -20,4 +20,8 @@ module Neo4jSearchable
   def related_in(id)
     Neo4j::ActiveBase.current_session.query('MATCH (n)<-[]-(a) WHERE n.uuid={id} RETURN a.uuid, a.name',id: id).rows
   end
+
+  def find_node_by_id(id)
+    Neo4j::ActiveBase.current_session.query('MATCH (n) WHERE n.uuid={id} RETURN n', id: id).rows.flatten.first
+  end
 end
