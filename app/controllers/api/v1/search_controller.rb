@@ -8,6 +8,6 @@ class Api::V1::SearchController < ApplicationController
   private
 
   def node_format(nodes)
-    nodes.map { |n| { id: n[0], name: n[1] } }
+    nodes.map { |n| { id: n[0], name: n[1], label: n[2][0] } }
   end
 end
