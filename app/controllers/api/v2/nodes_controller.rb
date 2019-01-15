@@ -2,6 +2,7 @@ class Api::V2::NodesController < ApplicationController
   def show
     node = find_node_by_id(params[:id])
     result = node.properties.as_json
+    result[:label] = (node.labels & types)[0]
     result[:children] = get_node_tree(params[:id])
     render json: result.to_json
   end
