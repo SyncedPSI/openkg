@@ -4,5 +4,8 @@ Rails.application.routes.draw do
       resources :search, only: :index
       resources :nodes, only: :show
     end
+    namespace :v2 do
+      resources :nodes, only: :show
+    end
   end
 end
