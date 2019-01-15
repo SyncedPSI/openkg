@@ -7,7 +7,7 @@ class Api::V1::NodesController < ApplicationController
     node_info = find_node_by_id(params[:id])
     result[:id] = node_info.properties[:uuid]
     result[:name] = node_info.properties[:name]
-    result[:desc] = node_info.properties[:desc]
+    result[:desc] = node_info.properties[:summary]
     render json: result.to_json
   end
 
