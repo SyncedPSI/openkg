@@ -15,13 +15,14 @@ class Api::V1::NodesController < ApplicationController
 
   def build_json(node, node_in, node_out)
     result = {}
-    result[:nodes] = nodes_json_format(node + node_in + node_out)
+    nodes = node + node_in + node_out
+    result[:nodes] = nodes_json_format(nodes, node[0])
     result[:links] = links_json_format(node, node_in, node_out)
     result
   end
 
-  def nodes_json_format(nodes)
-    nodes.map { |node| { id: node[0], name: node[1] } }
+  def nodes_json_format(nodes, mark)
+    nodes.map { |node| { id: node[0], name: node[1], mark: node == mark } }
   end
 
   def links_json_format(node, node_in, node_out)

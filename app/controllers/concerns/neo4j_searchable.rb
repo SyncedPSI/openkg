@@ -5,7 +5,7 @@ module Neo4jSearchable
 
   def get_nodes_find_with_alias(name)
     query = 'MATCH (n)<-[:alias_of*0..1]-(a) WHERE (n:Technology OR n:Expert OR n:Institution OR n:Paper OR n:Venue) ' \
-      'AND (a.name =~ {name}) AND NOT(n)-[:alias_of]->() AND (a.uuid IS NOT NULL OR a.uuid <> "" ) RETURN n.uuid, n.name LIMIT 50'
+      'AND (a.name =~ {name}) AND NOT(n)-[:alias_of]->() AND a.uuid <> "" RETURN n.uuid, n.name LIMIT 50'
     Neo4j::ActiveBase.current_session.query(query, name: "(?i).*#{name}.*").rows
   end
 
