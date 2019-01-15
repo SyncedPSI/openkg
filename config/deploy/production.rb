@@ -7,7 +7,7 @@
 # server "example.com", user: "deploy", roles: %w{app web}, other_property: :other_value
 # server "db.example.com", user: "deploy", roles: %w{db}
 server 'almosthuman.cn', user: 'www', roles: %w[app db web], primary: true
-set :server_name, 'almosthuman.cn:4000'
+set :server_name, 'openkg'
 set :rbenv_ruby, '2.5.1'
 set :rails_env, 'staging'
 set :branch, 'develop'

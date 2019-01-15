@@ -39,10 +39,7 @@ group :development, :test do
 
   gem 'capistrano', '3.8.1', require: false
   gem 'capistrano-bundler',  require: false
-  gem 'capistrano-db-tasks', require: false
-  gem 'capistrano-rails',    require: false
   gem 'capistrano-rbenv',    require: false
-  gem 'capistrano-sidekiq',  require: false
   gem 'capistrano3-puma',    require: false
 end
 
